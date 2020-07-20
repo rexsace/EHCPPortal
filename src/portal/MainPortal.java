@@ -1,22 +1,24 @@
 package portal;
 
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import java.awt.Font;
 import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
-import java.awt.Color;
 
-import javax.swing.JTextField;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
+import jdbc.Customer;
+import jdbc.JDBCExecutor;
 
 public class MainPortal {
 
@@ -152,7 +154,10 @@ public class MainPortal {
 		search.setBounds(10, 150, 100, 30);
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JDBCExecutor jdbc = new JDBCExecutor();
+				Customer customer = jdbc.searchCustomer();
 				String data[][] = {
+						{customer.getFirstName(), customer.getLastName(), Long.toString(customer.getId())},
 						{"John", "Doe", "AAAA"},
 						{"John", "da", "AAAA"},
 						{"John", "Doe", "AAAA"},
