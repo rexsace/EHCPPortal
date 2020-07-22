@@ -1,0 +1,55 @@
+EHCP MAIN ACTIVITIES:
+- Contacts record keeping
+- Material distribution
+- Seminars
+- Contact engagement - calls, newsletter, GA
+
+
+SAMPLE ACTIVITIES:
+- Ptr Sam gives name, padala tracks
+- ask sino napadalhan ng tracks
+- sino nakaattend ng Be a Better Dad
+- gaano karami nareach sa bohol
+- ilan napadala na tracks this june
+- ilan seminar na si Ptr .....
+- ilan seminar sa region
+- ilan nakaattend sa region
+- request si Ptr Efren na magpadala ng tracts to someone
+
+
+*****
+CONTACT RECORD KEEPING
+- get contact info
+	* Full name
+	* address
+	* cellphone #
+- update, create contact info
+	* report double entry
+
+
+****
+MATERIAL DISTRIBUTION
+- location
+- ilan
+- type: tracts, bible, newsletter, brochure, world prayer map
+- requested by (EHCP employee)
+- sending method
+	- sender (EHCP employee)
+	- receiver (contact)
+	- courier
+	- date sent
+	- shipping cost
+.........
+* sending tracks
+* record sent tracks
+* quantity ng tracks
+
+
+*****
+CONTACT ENGAGEMENT
+* Calls
+	- start time
+	- end time
+
+
+
