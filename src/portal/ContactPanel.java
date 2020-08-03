@@ -23,8 +23,11 @@ public class ContactPanel {
 	private JTextField last_name_input;
 	private JTextField church_input;
 	private JButton search;
+	private JButton view;
 	private JPanel contents;
-	private final String[] header = {"FIRST NAME", "LAST NAME", "CHURCH"};
+	private final String[] header = {"FIRST NAME", "LAST NAME", "CHURCH", ""};
+	
+	private InfoPanel info;
 	
 	public ContactPanel() {
 		first_name = new JLabel("First Name:");
@@ -55,11 +58,17 @@ public class ContactPanel {
 		search.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		search.setBounds(10, 150, 100, 30);
 
+		view = new JButton("View");
+		view.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		view.setBounds(120, 150, 100, 30);
+		
 		contents = new JPanel();
 		contents.setBounds(0, 190, 500, 200);
 		
 		String data[][] = {};
 		updateTableContents(contents, data);
+		
+		info = new InfoPanel();
 	}
 	
 	public void display(JPanel panel){
@@ -72,17 +81,27 @@ public class ContactPanel {
 		panel.add(search);
 		panel.add(contents);
 		
+
+		panel.add(view);
+		view.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 info.display(new String[] {"Frank", "Sinatra"});
+			}
+		});
+		
+		
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JDBCExecutor jdbc = new JDBCExecutor();
+				JDBCExecutor jdbc = JDBCExecutor.getInstance();
 				List<ContactInfo> infos = jdbc.getContactInfo("Frank", "Sinatra");
-				String data[][] = new String[infos.size()][3];
+				String data[][] = new String[infos.size()][4];
 				
 				for(int i = 0; i < infos.size(); i++) {
 					ContactInfo n = infos.get(i);
 					data[i][0] = n.getFirstName();
 					data[i][1] = n.getLastName();
 					data[i][2] = n.getMobileNumber();
+					data[i][3] = "";
 				}
 				
 				updateTableContents(contents, data);
